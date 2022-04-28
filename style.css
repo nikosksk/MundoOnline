@@ -1,0 +1,99 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+background-color: #0cbaba;
+background-image: linear-gradient(315deg, #0cbaba 0%, #380036 74%);
+background-attachment:fixed;
+
+}
+#formulario{
+   width: 400px;
+   background: #24303c;
+   padding: 30px;
+   margin: auto;
+   margin-top: 100px;
+   border-radius: 4px;
+   font-family: 'calibri';
+   color: white;
+   box-shadow: 7px 13px 37px #000;
+}
+
+#formulario h3{
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+.control{
+    width: 100%;
+    background: #24303c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #1f53c5;
+    font-size: 18px;
+    color:white;
+}
+#formulario p {
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 30px;
+}
+#formulario a{
+    color:white;
+    text-decoration: none;
+}
+#formulario a:hover{
+    color:white;
+    text-decoration: underline;
+}
+#formulario #btn{
+    width: 100%;
+    background: #1f53c5;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+}
+#formulario #btn:hover{
+    color: white;
+}
+.pieT{
+    margin-top: 6%;
+}
+.pieE{
+    padding-top: 1%;
+    width: 100%;
+    background: rgb(34, 34, 34);
+    color: white;
+    padding-left: 45%;
+}
+.pieD{
+    width: 100%;
+    background: rgb(34, 34, 34);
+    color: #72006e;
+    padding-left: 41.5%;
+    padding-bottom: 1%;
+}
+.pieI{
+    margin-top: 15%;
+}
+.pieI{
+    width: 100%;
+    background: rgb(34, 34, 34);
+    color: #72006e;
+    padding-bottom: 1%;
+}
+
+#comprar-carrito{
+    text-decoration: none;
+}
+
+.vd {
+    width:800px;
+    height:610px;
+    opacity:.7;
+}
