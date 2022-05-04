@@ -93,7 +93,13 @@ background-attachment:fixed;
 }
 
 .vd {
-    width:800px;
-    height:610px;
+    width:100%;
+    height:40rem;
     opacity:.7;
+}
+
+.frame {
+    padding-top: 7%;
+    width: 100%;
+    height: 100%;
 }
