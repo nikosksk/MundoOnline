@@ -1,43 +1,4 @@
-const prueba = [
-    {
-    "id": 1,
-    "name": "item1",
-    "tittle": "Play Station 5",
-    "price": "700",
-    "imagen": "https://laverdadnoticias.com/__export/1600624173295/sites/laverdad/img/2020/09/20/ps5_lanzamiento.jpg_1834093470.jpg"
-},{
-    "id": 2,
-    "name": "item2",
-    "tittle": "Xbox Series X",
-    "price": "400",
-    "imagen": "https://th.bing.com/th/id/R.bac485b1bb3d1569e28d3328eef04d79?rik=SO4Ms7FS8N5jSA&pid=ImgRaw&r=0"
-},{
-    "id": 3,
-    "name": "item3",
-    "tittle": "Nintendo Switch",
-    "price": "650",
-    "imagen": "https://1.bp.blogspot.com/-86PlDZ8vRkg/XG-wrtMhUWI/AAAAAAAABzA/MQlmRGd0OrUul2yYRXETRncCCtd_cobxQCLcBGAs/s1600/Switch.jpg"
-},{
-    "id": 4,
-    "name": "item4",
-    "tittle": "God of War 4",
-    "price": "60",
-    "imagen": "https://th.bing.com/th/id/R.3eb2a8b0ab3ef12c683fe95a444c6169?rik=%2f4wX4mlBqpPzYA&pid=ImgRaw&r=0"
-},{
-    "id": 5,
-    "name": "item5",
-    "tittle": "Forza Horizon 5",
-   "price": "70",
-   "imagen": "https://th.bing.com/th/id/OIP.sAkvSdZqTtuNG8aeXsfZuQHaEK?pid=ImgDet&rs=1"
-},{
-    "id": 6,
-    "name": "item6",
-   "tittle": "Mario Bross Odyssy",
-   "price": "50",
-   "imagen": "https://th.bing.com/th/id/R.e3fca9a25b87dfa98633c2ff01bd46a3?rik=8WUGeJJQ83FI7w&pid=ImgRaw&r=0"
-}
-]
-
+const productos = []
 const cards = document.getElementById("cards")
 const templateCard = document.getElementById("template-card").content
 const fragment = document.createDocumentFragment()
@@ -47,11 +8,9 @@ const items = document.getElementById("items")
 const footer = document.getElementById("footer")
 let carrito = {}
 
-
-window.localStorage.setItem("prueba", JSON.stringify(prueba))
-let item = JSON.parse(window.localStorage.getItem("prueba")); 
+window.localStorage.setItem("productos", JSON.stringify(productos))
+let item = JSON.parse(window.localStorage.getItem("productos")); 
 console.log(item)
-
 
 document.addEventListener("DOMContentLoaded", () => {
     fetchData()
@@ -68,7 +27,9 @@ items.addEventListener("click", e =>{
 })
 const fetchData = async() => {
     try{
-        pintarCards(prueba)
+        const response = await fetch("../../productos.json");
+        const data = await response.json()
+        pintarCards(data)
     } catch(error){
         console.log(error)
     }
@@ -165,9 +126,11 @@ const btnAccion = e =>{
         pintarCarrito()
     }
     if(e.target.classList.contains("btn-danger")){
-        const producto = carrito[e.target.dataset.id].cantidad --
-        if(producto.cantidad === 0){
+        const producto = carrito[e.target.dataset.id]
+        if(producto.cantidad <= 1){
             delete carrito[e.target.dataset.id]
+        } else {
+            producto.cantidad = carrito[e.target.dataset.id].cantidad - 1
         }
         pintarCarrito()
     
@@ -176,4 +139,6 @@ const btnAccion = e =>{
 }
 
 
+localStorage.setItem("formulario", "nombre", "apellido", "email")
 
+console.log(localStorage.getItem("formulario"))
